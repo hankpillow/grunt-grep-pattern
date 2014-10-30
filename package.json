@@ -1,0 +1,28 @@
+{
+  "name": "grunt-grep-pattern",
+  "version": "0.1.0",
+  "description": "simple grunt task to grep the results from a pattern into file/folder",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hankpillow/grunt-grep-pattern.git"
+  },
+  "keywords": [
+    "grunt",
+    "grep"
+  ],
+  "author": "igor almeida",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hankpillow/grunt-grep-pattern/issues"
+  },
+  "homepage": "https://github.com/hankpillow/grunt-grep-pattern",
+  "devDependencies": {
+    "mout": "^0.10.0",
+    "grunt-cli": "^0.1.13",
+    "grunt": "^0.4.5"
+  }
+}

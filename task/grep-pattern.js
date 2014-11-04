@@ -166,17 +166,20 @@ module.exports = function(grunt) {
 		function dump_report () {
 				var all_failed = 0,
 					all_files = report.length,
-					all_colors = 0;
+					matches_list = [],
+					all_matches = 0;
 
 				forEach(report, function (blob) {
 					var passed = true,
 						total = 0;
 
+					matches_list = matches_list.concat(blob.matches);
+
 					if (config.verbose === VERBOSE_FILES) {
 						grunt.log.writeln("\n"+blob.file);
 					}
 
-					all_colors = all_colors + blob.matches_total;
+					all_matches = all_matches + blob.matches_total;
 
 					forEach(blob.report, function(log){
 						if (log.total===0){
@@ -205,8 +208,9 @@ module.exports = function(grunt) {
 				} else {
 					grunt.log.writeln("\n----");
 					grunt.log.writeln("Total files: " + all_files);
-					grunt.log.writeln(" - matches to grep: " + all_colors);
-					grunt.log.writeln(" - unmatched values: "+ all_failed + " ("+Math.round(all_failed/all_colors*100)+"%)");
+					grunt.log.writeln(" - matches to grep (" + all_matches + ")");
+					grunt.log.writeln("   "+matches_list.join(', '));
+					grunt.log.writeln(" - unmatched values: "+ all_failed + " ("+Math.round(all_failed/all_matches*100)+"%)");
 					grunt.log.writeln("----");
 				}
 				done();
